@@ -29,6 +29,8 @@ namespace GraphicManager
         public Font FontTitle { get; set; } = new Font("Arial", 24);
         public string Title { get; set; } = "Untitled";
         public bool SmoothCoordinates { get; set; } = false;
+        public Color PenColor { get; set; } = Color.Black;
+        public float PenWidth { get; set; } = 4;
 
         public List<Coordinate> Coordinates = new List<Coordinate>();
         #endregion
@@ -214,7 +216,7 @@ namespace GraphicManager
             }
             DC.SetClip(new Rectangle(AxeX.Origin.X, AxeX.Origin.Y - AxeX.Size.Height, AxeX.Size.Width, AxeX.Size.Height));
 
-            Pen curvePen = new Pen(Color.Black, 4);
+            Pen curvePen = new Pen(PenColor, PenWidth);
             curvePen.StartCap = curvePen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
             curvePen.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
             if (SmoothCoordinates)

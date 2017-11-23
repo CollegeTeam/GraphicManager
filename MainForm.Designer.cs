@@ -31,12 +31,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.axeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuColorAxe = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuWidthAxe = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuTitleAxe = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuEchelleAxe = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuPoliceAxe = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuColorEtiquetteAxe = new System.Windows.Forms.ToolStripMenuItem();
             this.ligneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.courbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuColorCourbe = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuWitdhCourbe = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuAdoucirCourbe = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuColorBatonnets = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuChangerCourbeBatonnets = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +47,12 @@
             this.MnuColorGraph = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuColorForm = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuShowGrille = new System.Windows.Forms.ToolStripMenuItem();
-            this.MnuTitleGraph = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuColorGrille = new System.Windows.Forms.ToolStripMenuItem();
+            this.épaisseurDeLaGrilleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuTextTitle = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuPoliceTitle = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuColorTitle = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PN_Graphic = new GraphicManager.DoubleBufferPanel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,9 +73,11 @@
             // 
             this.axeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuColorAxe,
+            this.MnuWidthAxe,
             this.MnuTitleAxe,
             this.MnuEchelleAxe,
-            this.MnuPoliceAxe});
+            this.MnuPoliceAxe,
+            this.MnuColorEtiquetteAxe});
             this.axeToolStripMenuItem.Name = "axeToolStripMenuItem";
             this.axeToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.axeToolStripMenuItem.Text = "Axe";
@@ -76,26 +85,40 @@
             // MnuColorAxe
             // 
             this.MnuColorAxe.Name = "MnuColorAxe";
-            this.MnuColorAxe.Size = new System.Drawing.Size(356, 22);
-            this.MnuColorAxe.Text = "Couleur et épaisseur des axes";
+            this.MnuColorAxe.Size = new System.Drawing.Size(292, 22);
+            this.MnuColorAxe.Text = "Couleur des axes";
+            this.MnuColorAxe.Click += new System.EventHandler(this.MnuColorAxe_Click);
+            // 
+            // MnuWidthAxe
+            // 
+            this.MnuWidthAxe.Name = "MnuWidthAxe";
+            this.MnuWidthAxe.Size = new System.Drawing.Size(292, 22);
+            this.MnuWidthAxe.Text = "Épaisseur des axes";
             // 
             // MnuTitleAxe
             // 
             this.MnuTitleAxe.Name = "MnuTitleAxe";
-            this.MnuTitleAxe.Size = new System.Drawing.Size(356, 22);
+            this.MnuTitleAxe.Size = new System.Drawing.Size(292, 22);
             this.MnuTitleAxe.Text = "Changer le titre des axes";
             // 
             // MnuEchelleAxe
             // 
             this.MnuEchelleAxe.Name = "MnuEchelleAxe";
-            this.MnuEchelleAxe.Size = new System.Drawing.Size(356, 22);
+            this.MnuEchelleAxe.Size = new System.Drawing.Size(292, 22);
             this.MnuEchelleAxe.Text = "Définir l\'échelle des axes";
             // 
             // MnuPoliceAxe
             // 
             this.MnuPoliceAxe.Name = "MnuPoliceAxe";
-            this.MnuPoliceAxe.Size = new System.Drawing.Size(356, 22);
-            this.MnuPoliceAxe.Text = "Changer la police et la couleur des étiquettes des axes";
+            this.MnuPoliceAxe.Size = new System.Drawing.Size(292, 22);
+            this.MnuPoliceAxe.Text = "Changer la police des étiquettes des axes";
+            // 
+            // MnuColorEtiquetteAxe
+            // 
+            this.MnuColorEtiquetteAxe.Name = "MnuColorEtiquetteAxe";
+            this.MnuColorEtiquetteAxe.Size = new System.Drawing.Size(292, 22);
+            this.MnuColorEtiquetteAxe.Text = "Change la couleur des étiquettes des axes";
+            this.MnuColorEtiquetteAxe.Click += new System.EventHandler(this.MnuColorEtiquetteAxe_Click);
             // 
             // ligneToolStripMenuItem
             // 
@@ -111,6 +134,7 @@
             // 
             this.courbeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuColorCourbe,
+            this.MnuWitdhCourbe,
             this.MnuAdoucirCourbe});
             this.courbeToolStripMenuItem.Name = "courbeToolStripMenuItem";
             this.courbeToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
@@ -119,13 +143,20 @@
             // MnuColorCourbe
             // 
             this.MnuColorCourbe.Name = "MnuColorCourbe";
-            this.MnuColorCourbe.Size = new System.Drawing.Size(249, 22);
-            this.MnuColorCourbe.Text = "Couleur et épaisseur de la courbe";
+            this.MnuColorCourbe.Size = new System.Drawing.Size(209, 22);
+            this.MnuColorCourbe.Text = "Couleur de la courbe";
+            this.MnuColorCourbe.Click += new System.EventHandler(this.MnuColorCourbe_Click);
+            // 
+            // MnuWitdhCourbe
+            // 
+            this.MnuWitdhCourbe.Name = "MnuWitdhCourbe";
+            this.MnuWitdhCourbe.Size = new System.Drawing.Size(209, 22);
+            this.MnuWitdhCourbe.Text = "Épaisseur de la courbe";
             // 
             // MnuAdoucirCourbe
             // 
             this.MnuAdoucirCourbe.Name = "MnuAdoucirCourbe";
-            this.MnuAdoucirCourbe.Size = new System.Drawing.Size(249, 22);
+            this.MnuAdoucirCourbe.Size = new System.Drawing.Size(209, 22);
             this.MnuAdoucirCourbe.Text = "Adoucir ou non la courbe";
             this.MnuAdoucirCourbe.Click += new System.EventHandler(this.MnuAdoucirCourbe_Click);
             // 
@@ -147,8 +178,11 @@
             this.MnuColorGraph,
             this.MnuColorForm,
             this.MnuShowGrille,
-            this.MnuTitleGraph,
-            this.MnuColorGrille});
+            this.MnuColorGrille,
+            this.épaisseurDeLaGrilleToolStripMenuItem,
+            this.MnuTextTitle,
+            this.MnuPoliceTitle,
+            this.MnuColorTitle});
             this.autreToolStripMenuItem.Name = "autreToolStripMenuItem";
             this.autreToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.autreToolStripMenuItem.Text = "Autre";
@@ -156,42 +190,64 @@
             // MnuColorGraph
             // 
             this.MnuColorGraph.Name = "MnuColorGraph";
-            this.MnuColorGraph.Size = new System.Drawing.Size(349, 22);
+            this.MnuColorGraph.Size = new System.Drawing.Size(289, 22);
             this.MnuColorGraph.Text = "Couleur du fond du graphique";
+            this.MnuColorGraph.Click += new System.EventHandler(this.MnuColorGraph_Click);
             // 
             // MnuColorForm
             // 
             this.MnuColorForm.Name = "MnuColorForm";
-            this.MnuColorForm.Size = new System.Drawing.Size(349, 22);
+            this.MnuColorForm.Size = new System.Drawing.Size(289, 22);
             this.MnuColorForm.Text = "Couleur du fond du formulaire";
+            this.MnuColorForm.Click += new System.EventHandler(this.MnuColorForm_Click);
             // 
             // MnuShowGrille
             // 
             this.MnuShowGrille.Name = "MnuShowGrille";
-            this.MnuShowGrille.Size = new System.Drawing.Size(349, 22);
+            this.MnuShowGrille.Size = new System.Drawing.Size(289, 22);
             this.MnuShowGrille.Text = "Afficher ou non la grille";
             this.MnuShowGrille.Click += new System.EventHandler(this.MnuShowGrille_Click);
-            // 
-            // MnuTitleGraph
-            // 
-            this.MnuTitleGraph.Name = "MnuTitleGraph";
-            this.MnuTitleGraph.Size = new System.Drawing.Size(349, 22);
-            this.MnuTitleGraph.Text = "Changer le titre du graphique (texte, police, couleur)";
             // 
             // MnuColorGrille
             // 
             this.MnuColorGrille.Name = "MnuColorGrille";
-            this.MnuColorGrille.Size = new System.Drawing.Size(349, 22);
-            this.MnuColorGrille.Text = "Couleur et épaisseur de la grille";
+            this.MnuColorGrille.Size = new System.Drawing.Size(289, 22);
+            this.MnuColorGrille.Text = "Couleur de la grille";
+            this.MnuColorGrille.Click += new System.EventHandler(this.MnuColorGrille_Click);
+            // 
+            // épaisseurDeLaGrilleToolStripMenuItem
+            // 
+            this.épaisseurDeLaGrilleToolStripMenuItem.Name = "épaisseurDeLaGrilleToolStripMenuItem";
+            this.épaisseurDeLaGrilleToolStripMenuItem.Size = new System.Drawing.Size(289, 22);
+            this.épaisseurDeLaGrilleToolStripMenuItem.Text = "Épaisseur de la grille";
+            // 
+            // MnuTextTitle
+            // 
+            this.MnuTextTitle.Name = "MnuTextTitle";
+            this.MnuTextTitle.Size = new System.Drawing.Size(289, 22);
+            this.MnuTextTitle.Text = "Changer le texte du titre du graphique";
+            // 
+            // MnuPoliceTitle
+            // 
+            this.MnuPoliceTitle.Name = "MnuPoliceTitle";
+            this.MnuPoliceTitle.Size = new System.Drawing.Size(289, 22);
+            this.MnuPoliceTitle.Text = "Changer la police du titre du graphique";
+            // 
+            // MnuColorTitle
+            // 
+            this.MnuColorTitle.Name = "MnuColorTitle";
+            this.MnuColorTitle.Size = new System.Drawing.Size(289, 22);
+            this.MnuColorTitle.Text = "Changer la couleur du titre du graphique";
+            this.MnuColorTitle.Click += new System.EventHandler(this.MnuColorTitle_Click);
             // 
             // PN_Graphic
             // 
             this.PN_Graphic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PN_Graphic.Location = new System.Drawing.Point(8, 60);
+            this.PN_Graphic.Location = new System.Drawing.Point(8, 27);
             this.PN_Graphic.Name = "PN_Graphic";
-            this.PN_Graphic.Size = new System.Drawing.Size(686, 481);
+            this.PN_Graphic.Size = new System.Drawing.Size(686, 514);
             this.PN_Graphic.TabIndex = 0;
             // 
             // MainForm
@@ -229,9 +285,16 @@
         private System.Windows.Forms.ToolStripMenuItem MnuColorGraph;
         private System.Windows.Forms.ToolStripMenuItem MnuColorForm;
         private System.Windows.Forms.ToolStripMenuItem MnuShowGrille;
-        private System.Windows.Forms.ToolStripMenuItem MnuTitleGraph;
+        private System.Windows.Forms.ToolStripMenuItem MnuPoliceTitle;
         private System.Windows.Forms.ToolStripMenuItem MnuColorGrille;
         private DoubleBufferPanel PN_Graphic;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem épaisseurDeLaGrilleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MnuTextTitle;
+        private System.Windows.Forms.ToolStripMenuItem MnuColorTitle;
+        private System.Windows.Forms.ToolStripMenuItem MnuWitdhCourbe;
+        private System.Windows.Forms.ToolStripMenuItem MnuColorEtiquetteAxe;
+        private System.Windows.Forms.ToolStripMenuItem MnuWidthAxe;
     }
 }
 

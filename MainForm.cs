@@ -63,12 +63,85 @@ namespace GraphicManager
         private void MnuAdoucirCourbe_Click(object sender, EventArgs e)
         {
             Graphic.SmoothCoordinates = !Graphic.SmoothCoordinates;
+            PN_Graphic.Refresh();
         }
 
         private void MnuShowGrille_Click(object sender, EventArgs e)
         {
             Graphic.AxeX.ShowGrid = !Graphic.AxeX.ShowGrid;
             Graphic.AxeY.ShowGrid = !Graphic.AxeY.ShowGrid;
+            PN_Graphic.Refresh();
+        }
+
+        private void MnuColorGraph_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                PN_Graphic.BackColor = colorDialog1.Color;
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorForm_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BackColor = colorDialog1.Color;
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorGrille_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Graphic.AxeX.GridPen = new Pen(colorDialog1.Color,Graphic.AxeX.GridPen.Width);
+                Graphic.AxeY.GridPen = new Pen(colorDialog1.Color, Graphic.AxeY.GridPen.Width);
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorTitle_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Graphic.BrushTilte = new SolidBrush(colorDialog1.Color);
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorAxe_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Graphic.AxeX.AxePen = new Pen(colorDialog1.Color, Graphic.AxeX.GridPen.Width);
+                Graphic.AxeY.AxePen = new Pen(colorDialog1.Color, Graphic.AxeY.GridPen.Width);
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorEtiquetteAxe_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Graphic.AxeX.AxeLabelBrush = new SolidBrush(colorDialog1.Color);
+                Graphic.AxeY.AxeLabelBrush = new SolidBrush(colorDialog1.Color);
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void MnuColorCourbe_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Graphic.PenColor = colorDialog1.Color;
+                PN_Graphic.Refresh();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
