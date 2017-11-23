@@ -59,5 +59,16 @@ namespace GraphicManager
                 Graphic.Coordinates.Add(new Coordinate { X = x, Y = Math.Sin(x/5.0) * Math.Sin(x /1.4) * Math.Sin(x / 1.5) * 40.0 + 50.0 });
             }
         }
+
+        private void MnuAdoucirCourbe_Click(object sender, EventArgs e)
+        {
+            Graphic.SmoothCoordinates = !Graphic.SmoothCoordinates;
+        }
+
+        private void MnuShowGrille_Click(object sender, EventArgs e)
+        {
+            Graphic.AxeX.ShowGrid = !Graphic.AxeX.ShowGrid;
+            Graphic.AxeY.ShowGrid = !Graphic.AxeY.ShowGrid;
+        }
     }
 }
